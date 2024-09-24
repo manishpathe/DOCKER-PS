@@ -1,0 +1,15 @@
+-- to build an image from dockerfile
+docker image build --pull --file "C:\Users\manis\Documents\docker-ps/Dockerfile" --tag "dockerps:latest" --label "com.microsoft.created-by=visual-studio-code" "C:\Users\manis\Documents\docker-ps"
+docker image build --tag "dockerps:latest" 
+
+-- to run docker image
+docker run --rm -it -p 3000:3000/tcp dockerps:latest  #
+
+
+CREATE USER 'manishread'@'localhost' IDENTIFIED BY '12345678';
+GRANT ALL PRIVILEGES ON mydatabase.* TO 'manishread'@'localhost';
+GRANT SELECT ON mydatabase.* TO 'manishread'@'localhost';
+
+FLUSH PRIVILEGES;
+
+

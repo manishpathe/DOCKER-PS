@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  dockerps:
+    image: dockerps
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 4000:${PORT}
+    volumes:
+      - psvolume:/app/data
+      - ./volume:/usr/src/app/upload
+    networks:
+      - my-app-bridge-network
+    
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepassword
+    networks:
+      - my-app-bridge-network
+    ports:
+      - "3308:3306"
+
+volumes:
+
+  psvolume:
+
+networks:
+  my-app-bridge-network:
+    # external: true

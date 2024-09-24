@@ -1,0 +1,5 @@
+docker image build --pull --file "C:\Users\manis\Documents\docker-ps\Dockerfile" --tag "dockerps:latest" "C:\Users\manis\Documents\docker-ps"
+
+ docker compose -f "docker-compose.yml" up -d --build 
+
+docker exec --user root -it 02a sh
